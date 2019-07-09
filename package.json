@@ -8,9 +8,14 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@hint/hint-apple-touch-icons": "^3.0.2",
     "core-js": "^2.6.5",
+    "material-design-icons-iconfont": "^3.0.3",
+    "roboto-fontface": "*",
     "vue": "^2.6.10",
+    "vue-awesome-swiper": "^3.1.3",
     "vue-router": "^3.0.3",
+    "vuetify": "^1.5.5",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -20,6 +25,20 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "vue-cli-plugin-vuetify": "^0.5.0",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "hintConfig": {
+    "connector": {
+        "name": "connectorName"
+    },
+    "formatters": ["formatterName"],
+    "parsers": ["parserName"],
+    "hints": {
+        "hint1": "error",
+        "hint2": "warning",
+        "hint3": "off"
+    },
+    "hintsTimeout": 120000
+}
 }
