@@ -1,16 +1,51 @@
 <template>
-  <div class="section">
-    <h1>This is the SectionName</h1>
+<div v-if="this.results">
+    <router-link
+    v-if="$routerHistory.hasPrevious()"
+    :to="{ path: $routerHistory.previous().path }">
+   <v-icon large>arrow_back</v-icon>
+</router-link>
+  <ArticleSection v-for="result in results" :key="result.id" :result='result'></ArticleSection>
+</div>
 
-    <h2>Some news related to the section Name</h2>
-
-    <div>links to related content</div>
-
-  </div>
 </template>
 
 <script>
+import ArticleSection from '../components/ArticleSection'
 export default {
-    
+  components: {ArticleSection},
+  props: ['sectionName', 'subsection'],
+  data(){
+      return{
+       results: null
+}
+},
+  created(){
+console.log(this.subsection,this.sectionName);
+
+  fetch(`http://content.guardianapis.com/search?q=${this.subsection}&section=${this.sectionName}&show-fields=all&show-elements=all&order-by=newest&api-key=985386ca-6d17-4226-a910-3c35ab40e042`)
+  .then((response)=>{
+          return response.json();})
+  .then( (json)=>{
+        this.results = json.response.results;
+       })
+  
+},
+watch: {
+    subsection: function() {
+        fetch(`http://content.guardianapis.com/search?q=${this.subsection}&section=${this.sectionName}&show-fields=all&show-elements=all&order-by=newest&api-key=985386ca-6d17-4226-a910-3c35ab40e042`)
+  .then((response)=>{
+          return response.json();})
+  .then( (json)=>{
+        this.results = json.response.results;
+       })
+    }
+}
 }
 </script>
+<style>
+a{
+    text-decoration: none;
+}
+</style>
+

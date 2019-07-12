@@ -1,31 +1,38 @@
 <template>
   <v-app>
-    <v-navigation-drawer enable-resize-watcher v-model="drawer" app class="blue-grey">
+    <v-navigation-drawer v-model="drawer" app class="blue-grey">
           <v-list>
           <v-list-group
             v-for="item in items"
             :key="item.title"
             v-model="item.active"
-            no-action>
+            no-action
+            >
             <template v-slot:activator>
               <v-list-tile>
                 <v-list-tile-content>
                   <v-list-tile-title class="white--text">{{ item.title }}</v-list-tile-title>
                 </v-list-tile-content>
               </v-list-tile>
-            </template>
-
+            </template>            
             <v-list-tile
               v-for="subItem in item.items"
               :key="subItem.title">
               <v-list-tile-content>
                 <router-link :to='subItem.route'><v-list-tile-title class="white--text">{{ subItem.title }}</v-list-tile-title></router-link>
               </v-list-tile-content>
-            </v-list-tile>
+            </v-list-tile>            
           </v-list-group>
         </v-list>
+        <v-divider></v-divider>
+        <v-list-tile>
+                <v-list-tile-content>
+                  <router-link :to="'/jobs'"><v-list-tile-title class="white--text">Job Opportunities</v-list-tile-title></router-link>
+                  
+                </v-list-tile-content>
+              </v-list-tile>
     </v-navigation-drawer>
-    <v-toolbar fixed app >
+    <v-toolbar fixed app>
       <v-toolbar-side-icon class="grey--text" @click="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title class="headline text-uppercase"></v-toolbar-title>
   
@@ -49,46 +56,67 @@ export default {
       drawer: false,
       
       items: [
-        {
-          
+        {         
           title: 'News',
           items: [
-            { title: 'List Item', route:'/' }
+            { title: 'Latest News', route:'/' },
           ]
         },
         {
          
-          title: 'Sports',
+          title: 'Sport',
           items: [
-            { title: 'Soccer', route:'/section' },
-            { title: 'Football', route:'/section' },
-            { title: 'Basket',route:'/section' }
+            { title: 'Tennis', route:'/section/sport/tennis' },
+            { title: 'Football', route:'/section/sport/football' },
+            { title: 'Basket',route:'/section/sport/basket' },
+            { title: 'Cricket',route:'/section/sport/cricket' },
           ]
         },
         {
-          
           title: 'Culture',
           items: [
-            { title: 'List Item', route:'/section' }
+            { title: 'Film', route:'/section/culture/film' },
+            { title: 'Music', route:'/section/culture/music' },
+            { title: 'Games', route:'/section/culture/games' },
+            { title: 'Books', route:'/section/culture/books' }
           ]
         },
-        {
-         
-          title: 'Music',
-          items: [
-            { title: 'List Item',route:'/section' }
-          ]
+        {title: 'Tech',
+        items: 
+            [
+              { title: 'Technology', route:'/section/tech/technology' }
+              ]
         },
         {
-          
           title: 'Lifestyle',
           items: [
-            { title: 'List Item',route:'/jobs' }
+            { title: 'Fashion',route:'/section/lifeandstyle/fashion' },
+            { title: 'Food' ,route:'/section/lifeandstyle/food'}
           ]
         },
+        {
+          title: 'Travel',
+          items: [
+            { title: 'Travel in Europe',route:'/section/travel/europe' },
+            {title: 'Travel in the UK' ,route:'/section/travel/uk'}
+            
+          ]
+        },
+        
         
       ]
     }
   }
 }
 </script>
+<style>
+a{
+  text-decoration: none;
+}
+p{
+  text-align: justify;
+}
+body{
+  font-family: 'Roboto Condensed', sans-serif;
+}
+</style>

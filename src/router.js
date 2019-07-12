@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+import VueRouterBackButton, {routerHistory, writeHistory} from 'vue-router-back-button'
 
 Vue.use(Router)
+Vue.use(routerHistory)
 
-export default new Router({
+
+const router =  new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -19,14 +21,10 @@ export default new Router({
       component: ()=> import ('./views/Jobs.vue')
     },
     {
-      path: '/section',
+      path: '/section/:sectionName/:subsection',
+      props: true,
       name: 'section',
       component: ()=> import ('./views/Section.vue')
-    },
-    {
-      path: '/filtered-news',
-      name: 'filtered-news',
-      component: ()=> import ('./views/FilteredNews.vue')
     },
     {
       path: '/newsarticle/:id(.*)',
@@ -37,3 +35,9 @@ export default new Router({
     
   ]
 })
+
+Vue.use(VueRouterBackButton, { router, ignoreRoutesWithSameName:'true' })
+
+router.afterEach(writeHistory)
+
+export default router
