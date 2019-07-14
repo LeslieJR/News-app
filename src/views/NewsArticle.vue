@@ -20,12 +20,10 @@
     fixed
     bottom
     right
-    color="primary"
+    
     @click="toTop">
     <v-icon>keyboard_arrow_up</v-icon>
   </v-btn>
-    
-
 </v-container>
     
 </template>
@@ -53,7 +51,7 @@ export default {
    
   }},
   created(){
-  fetch(`https://content.guardianapis.com/${this.id}?show-fields=all&api-key=985386ca-6d17-4226-a910-3c35ab40e042`)
+  fetch(`https://content.guardianapis.com/${this.id}?show-fields=all&show-elements=all&api-key=985386ca-6d17-4226-a910-3c35ab40e042`)
   .then((response)=>{
           return response.json();})
   .then( (json)=>{
@@ -72,6 +70,9 @@ p{
 }
 img{
   width:100%;
+}
+.v-btn--bottom:not(.v-btn--absolute) {
+    bottom: 0px;
 }
 
 </style>

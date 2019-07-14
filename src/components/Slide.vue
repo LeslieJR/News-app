@@ -1,6 +1,6 @@
 <template>
     <swiper-slide>
-          <div class="image" v-bind:style="{ backgroundImage: 'url(' + article.fields.thumbnail + ')'}">
+          <div class="image" v-bind:style="{ backgroundImage: 'linear-gradient(rgba(170, 195, 198, 0.3), rgba(82, 56, 93, 0.4)),url(' + article.fields.thumbnail + ')'}">
               <div class="content">
                   <div class="title">
                       <router-link v-bind:to="'/NewsArticle/'+ article.id"><h1>{{article.fields.headline}}</h1></router-link>
@@ -24,6 +24,7 @@ export default {
     height: 250px;
     background-size: contain;
     display: flex;
+    background-position-x: center;
     /* flex-direction: column;
     justify-content: space-around; */
 }
@@ -34,5 +35,11 @@ h1{
     font-size: 22px;
     margin-right: 15px;
     margin-left: 15px;
+}
+.title h1{
+    
+    font-size: 25px;
+    padding: 25% 20px;
+
 }
 </style>

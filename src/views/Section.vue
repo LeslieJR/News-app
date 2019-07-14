@@ -3,8 +3,9 @@
     <router-link
     v-if="$routerHistory.hasPrevious()"
     :to="{ path: $routerHistory.previous().path }">
-   <v-icon large>arrow_back</v-icon>
-</router-link>
+     <v-icon large>arrow_back</v-icon>
+   </router-link>
+   <h1>{{sectionName}}</h1>
   <ArticleSection v-for="result in results" :key="result.id" :result='result'></ArticleSection>
 </div>
 
@@ -43,9 +44,13 @@ watch: {
 }
 }
 </script>
-<style>
+<style scoped>
 a{
     text-decoration: none;
+}
+h1{
+  padding-left: 10px;
+  text-transform: capitalize;
 }
 </style>
 

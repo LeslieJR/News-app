@@ -1,13 +1,16 @@
 <template>
 <div>
-      <weather></weather>
-      <!-- swiper -->
-      <swiper :options="swiperOption">
-          <slide v-for="article in articles" :key="article.id" :article='article'></slide>
-        <div class="swiper-pagination swiper-pagination-white" slot="pagination"></div>
-        <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
-        <div class="swiper-button-next swiper-button-black" slot="button-next"></div>
-      </swiper>
+  <!-- weather component -->
+  <weather></weather>
+  <!-- headlines -->
+  <h1 class="title">Breaking News</h1>
+    <!-- swiper component -->
+  <swiper :options="swiperOption">
+    <slide v-for="article in articles" :key="article.id" :article='article'></slide>
+    <div class="swiper-pagination swiper-pagination-white" slot="pagination"></div>
+    <div class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
+    <div class="swiper-button-next swiper-button-black" slot="button-next"></div>
+    </swiper>
 </div>
     
 </template>
@@ -21,30 +24,24 @@ import weather from '../components/Weather'
 
 import slide from '../components/Slide'
  export default {
-   name: 'carrousel',
+   name: 'home',
    components: {
    swiper,
    slide,
    weather
  },
   created(){
-    fetch("https://content.guardianapis.com/search?&order-by=newest&show-fields=headline,thumbnail&api-key=985386ca-6d17-4226-a910-3c35ab40e042",{
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
+    fetch("https://content.guardianapis.com/search?&order-by=newest&show-fields=headline,thumbnail&api-key=985386ca-6d17-4226-a910-3c35ab40e042"
+    )
     .then((response)=>{
           return response.json();})
     .then( (json)=>{
         this.articles = json.response.results;
        });
-
-   
-        },
-       
+},   
    data() {
      return {
-         articles:null,
+        articles:null,
         swiperOption: {
           speed: 600,
           pagination: {
@@ -59,7 +56,7 @@ import slide from '../components/Slide'
    }}
  }
 </script>
-<style>
+<style scoped>
 
 .swiper-slide{
     margin-top: 50px;
@@ -67,12 +64,9 @@ import slide from '../components/Slide'
 .subtitle{
     margin-left:50px;
 }
-h1{
-margin-top: 30%;
-background-color: rgba(49, 60, 90,0.5);
-text-align: left; 
+.title{
+  margin: 0 25%;
 }
-
 
 
 
