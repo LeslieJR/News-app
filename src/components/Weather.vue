@@ -1,14 +1,17 @@
 <template>
   <v-container v-if="response">
     <v-card>
-      <v-text-field
-        class="input"
-        v-model="inputText"
-        placeholder="City Name"
-        prepend-inner-icon="search"
-        v-on:keyup.enter="input(inputText)"
-      >
-      </v-text-field>
+      <div class="date">
+        <v-text-field
+          class="input"
+          v-model="inputText"
+          placeholder="City Name"
+          prepend-inner-icon="search"
+          v-on:keyup.enter="input(inputText)"
+        >
+        </v-text-field>
+        <p>{{ date }}</p>
+      </div>
 
       <v-data-table :headers="headers" hide-headers :items="items" hide-actions>
         <template v-slot:items="props">
@@ -37,12 +40,12 @@ export default {
   data() {
     return {
       response: null,
-
+      city: "London",
       inputText: "",
-
       error: "",
       lat: "",
       lon: "",
+      date: "",
       headers: [
         { text: "Location", sortable: false, value: "Location" },
         { text: "Temperature", sortable: false, value: "Temperature" },
@@ -54,6 +57,7 @@ export default {
   created() {
     // call the method 'getCoodinates' which before finishing call the 'getCity' function which finallycalls the 'input' function
     this.getCoordinates();
+    this.getDate();
   },
   methods: {
     input(city) {
@@ -70,16 +74,23 @@ export default {
     },
     //getCoordinates we access the lat and lon data of the user (current position) and then reverse geolocation to get the city name (by calling 'getCity' function)
     getCoordinates() {
-      let that = this;
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-          that.lat = position.coords.latitude;
-          that.lon = position.coords.longitude;
-          that.getCity();
-        });
-      } else {
-        that.input(London);
+        navigator.geolocation.getCurrentPosition(
+          this.showposition,
+          this.showError
+        );
       }
+    },
+
+    showposition(position) {
+      this.lat = position.coords.latitude;
+      this.lon = position.coords.longitude;
+      this.getCity();
+    },
+    // in case the user doesn't allow to get his location:
+    showError(error) {
+      console.log(error);
+      this.input(this.city);
     },
     getCity() {
       fetch(
@@ -90,6 +101,15 @@ export default {
           this.inputText = response.address.city;
           this.input(this.inputText);
         });
+    },
+    getDate() {
+      var today = new Date();
+      this.date =
+        today.getDate() +
+        "/" +
+        (today.getMonth() + 1) +
+        "/" +
+        today.getFullYear();
     }
   },
   // created(){
@@ -103,7 +123,7 @@ export default {
           Location: this.response.list[0].name,
           Temperature: this.response.list[0].main.temp,
           Description: this.response.list[0].weather[0].description,
-          Icon: `http://openweathermap.org/img/wn/${this.response.list[0].weather[0].icon}@2x.png`
+          Icon: `https://openweathermap.org/img/wn/${this.response.list[0].weather[0].icon}@2x.png`
         }
       ];
     }
@@ -131,5 +151,12 @@ table.v-table tbody td {
 child,
 table.v-table tbody td:not(:first-child) {
   padding: 0 10px;
+}
+.date {
+  display: flex;
+}
+.date p{
+  padding: 26px 15px;
+  font-size: medium;
 }
 </style>

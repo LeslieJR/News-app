@@ -6,7 +6,7 @@
     >
       <v-icon large>arrow_back</v-icon>
     </router-link>
-    <h1>{{ sectionName }}/{{ subsection }}</h1>
+    <h1>{{ subsection }}</h1>
     <ArticleSection
       v-for="result in results"
       :key="result.id"
@@ -29,7 +29,7 @@ export default {
     console.log(this.subsection, this.sectionName);
 
     fetch(
-      `http://content.guardianapis.com/search?q=${this.subsection}&section=${this.sectionName}&show-fields=all&show-elements=all&order-by=newest&api-key=985386ca-6d17-4226-a910-3c35ab40e042`
+      `https://content.guardianapis.com/search?q=${this.subsection}&section=${this.sectionName}&show-fields=all&show-elements=all&order-by=newest&api-key=985386ca-6d17-4226-a910-3c35ab40e042`
     )
       .then(response => {
         return response.json();
@@ -58,7 +58,7 @@ a {
   text-decoration: none;
 }
 h1 {
-  padding-left: 10px;
+  text-align: -webkit-center;
   text-transform: capitalize;
 }
 </style>
