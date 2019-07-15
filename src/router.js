@@ -13,9 +13,14 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [{
-      path: '/',
+      path: '/home',
       name: 'home',
       component: () => import('./views/Home.vue')
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: () => import('./views/SingUp.vue')
     },
     {
       path: '/login',

@@ -62,6 +62,8 @@
 export default {
   name: "App",
   components: {},
+
+  methods: {},
   data() {
     return {
       drawer: false,
