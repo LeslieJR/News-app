@@ -5,7 +5,7 @@
     :to="{ path: $routerHistory.previous().path }">
      <v-icon large>arrow_back</v-icon>
    </router-link>
-   <h1>{{sectionName}}</h1>
+   <h1>{{sectionName}}/{{subsection}}</h1>
   <ArticleSection v-for="result in results" :key="result.id" :result='result'></ArticleSection>
 </div>
 
@@ -29,7 +29,7 @@ console.log(this.subsection,this.sectionName);
           return response.json();})
   .then( (json)=>{
         this.results = json.response.results;
-       })
+        })
   
 },
 watch: {

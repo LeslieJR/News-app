@@ -1,6 +1,7 @@
 <template>
-  <v-app>
-    <v-navigation-drawer v-model="drawer" app class="blue-grey">
+  <v-app xs12 sm8 md4>
+    <v-navigation-drawer v-model="drawer" fixed
+      right app class="blue-grey">
           <v-list>
           <v-list-group
             v-for="item in items"
@@ -33,7 +34,8 @@
               </v-list-tile>
     </v-navigation-drawer>
     <v-toolbar fixed app>
-      <v-toolbar-side-icon class="grey--text" @click="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>News</v-toolbar-title>
+      <v-toolbar-side-icon fixed right class="grey--text" @click="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title class="headline text-uppercase"></v-toolbar-title>
   
     </v-toolbar>

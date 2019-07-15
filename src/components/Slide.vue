@@ -21,7 +21,7 @@ export default {
 <style scoped>
 .image{
     padding: 0 50px;
-    height: 250px;
+    height: 225px;
     background-size: contain;
     display: flex;
     background-position-x: center;
@@ -39,7 +39,8 @@ h1{
 .title h1{
     
     font-size: 25px;
-    padding: 25% 20px;
+    padding: 14% 0px;
 
 }
+
 </style>

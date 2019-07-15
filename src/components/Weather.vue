@@ -9,7 +9,7 @@
               placeholder="City Name"
                     prepend-inner-icon="search"
 
-                    v-on:keyup.enter="input">
+                    v-on:keyup.enter="input(inputText)">
       </v-text-field>
 
       <v-data-table
@@ -45,12 +45,12 @@ export default {
     data() {
         return {
             response: null,
-            // city: '',
+            
             inputText:"",
             
-            // error: '',
-            // lat:'',
-            // lon:'',
+            error: '',
+            lat:'',
+            lon:'',
             headers: [
         { text: "Location",sortable: false, value: "Location" },
         { text: "Temperature", sortable: false, value: "Temperature" },
@@ -59,33 +59,49 @@ export default {
             ]
     }},
     created() {
-         fetch('https://api.openweathermap.org/data/2.5/find?q=London,uk&units=metric&APPID=bfce8269b6c00387911952a335344255')
-    .then((response)=>{
-          return response.json();})
-    .then((json)=>{
-      this.response=json
-      })
+        // call the method 'getCoodinates' which before finishing call the 'getCity' function which finallycalls the 'input' function
+        this.getCoordinates();
     },
-    // methods:{
-        //getCoordinates we access the lat and lon data of the user (current position) and then reverse geolocation to get the city name
-    //     getCoordinates: function () {		
-	// if(navigator.geolocation){navigator.geolocation.getCurrentPosition((position)=> {this.lat = position.coords.latitude;this.lon = position.coords.longitude;
-    // })}
+     methods:{
+         input(city){
+            fetch(`https://api.openweathermap.org/data/2.5/find?q=${city}&units=metric&APPID=bfce8269b6c00387911952a335344255`).then((response)=>{
+                return response.json();
+                }).then((json)=>{
+                    this.response=json
+                    this.inputText=''
+                    })
+      },
+        //getCoordinates we access the lat and lon data of the user (current position) and then reverse geolocation to get the city name (by calling 'getCity' function)
+        getCoordinates() {	
+            
+            let that = this;	
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition((position)=> {
+        that.lat = position.coords.latitude;
+        that.lon = position.coords.longitude;
+        that.getCity();
+    })}
    
-	// },
-//         getInfo: function (){fetch(`https://eu1.locationiq.com/v1/reverse.php?key=8ed4ccfddf4744&lat=${this.lat}&lon=${this.lon}&format=json`).then(function (response) {
-//   console.log(response)})
-//     }},
+	},
+        getCity(){
+            fetch(`https://eu1.locationiq.com/v1/reverse.php?key=8ed4ccfddf4744&lat=${this.lat}&lon=${this.lon}&format=json`)
+            .then((response)=>response.json())
+            .then(
+                 (response) => {
+                
+                this.inputText=response.address.city;
+                this.input(this.inputText)
+  })
+    }
+    },
     // created(){
     //     this.getCoordinates;
     //      console.log(this.lon,this.lat)
-    // }
+    
   computed: {
         items() {return [{Location: this.response.list[0].name,Temperature: this.response.list[0].main.temp,Description: this.response.list[0].weather[0].description,Icon: `http://openweathermap.org/img/wn/${this.response.list[0].weather[0].icon}@2x.png`}]
             },
-        input(){
-            fetch(`https://api.openweathermap.org/data/2.5/find?q=${this.inputText}&units=metric&APPID=bfce8269b6c00387911952a335344255`).then((response)=>{return response.json();}).then((json)=>{this.response=json})
-      }
+        
 
     
   
