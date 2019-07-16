@@ -155,7 +155,7 @@ table.v-table tbody td:not(:first-child) {
 .date {
   display: flex;
 }
-.date p{
+.date p {
   padding: 26px 15px;
   font-size: medium;
 }

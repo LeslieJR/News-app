@@ -31,13 +31,38 @@
       <v-divider></v-divider>
       <v-list-tile>
         <v-list-tile-content>
-          <router-link :to="'/login'"
+          <router-link to="/Login"
             ><v-list-tile-title class="white--text"
-              >Login</v-list-tile-title
+              >Login
+            </v-list-tile-title></router-link
+          >
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-divider></v-divider>
+      <v-list-tile>
+        <v-list-tile-content>
+          <router-link to="/SupportChat"
+            ><v-list-tile-title class="white--text"
+              >Support Chat</v-list-tile-title
             ></router-link
           >
         </v-list-tile-content>
       </v-list-tile>
+
+      <!-- <v-list-tile>
+        <v-list-tile-content>
+          <router-link to="/login" v-if="!authenticated"
+            ><v-list-tile-title class="white--text"
+              >Login</v-list-tile-title
+            ></router-link
+          >
+          <router-link to="/logout" v-else
+            ><v-list-tile-title class="white--text">
+              Log Out</v-list-tile-title
+            ></router-link
+          >
+        </v-list-tile-content>
+      </v-list-tile> -->
     </v-navigation-drawer>
     <v-toolbar fixed app>
       <v-toolbar-title>News</v-toolbar-title>
@@ -64,6 +89,7 @@ export default {
   components: {},
 
   methods: {},
+
   data() {
     return {
       drawer: false,
