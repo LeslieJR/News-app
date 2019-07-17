@@ -1,5 +1,6 @@
 import firebase from 'firebase'
 import firebaseui from 'firebaseui';
+import router from "./router"
 
 
 const config = {
@@ -23,7 +24,7 @@ const auth = {
 
         firebase.initializeApp(config);
         this.uiConfig = {
-            signInSuccessUrl: '/SupportChat',
+            signInSuccessUrl: '/auth',
             signInOptions: [
                 firebase.auth.FacebookAuthProvider.PROVIDER_ID,
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -33,23 +34,37 @@ const auth = {
         this.ui = new firebaseui.auth.AuthUI(firebase.auth());
 
         firebase.auth().onAuthStateChanged((user) => {
-            this.context.$store.commit('user/setUser', user)
+            console.log("user to store")
+            context.$store.commit('user/setUser', user)
 
-            let requireAuth = this.context.$route.matched.some(record => record.meta.requireAuth)
+            let requiresAuth = context.$route.matched.some(record => record.meta.requiresAuth)
+            console.log(requiresAuth)
 
 
-            if (requireAuth && !user) this.context.$router.push('auth')
+            if (requiresAuth && !user) {
+                context.$router.push('auth')
+                console.log(router.history.current.fullPath)
+            }
+            if (router.history.current.fullPath == "/auth" && user) {
+                router.push("supportchat")
+            }
 
         });
     },
     authForm(container) {
         this.ui.start(container, this.uiConfig);
+
     },
     user() {
         return this.context ? firebase.auth().currentUser : null;
     },
     logout() {
-        firebase.auth().signOut();
+        firebase.auth().signOut().then(() => {
+            console.log("logout")
+            this.context.$store.commit('user/setUser', null)
+
+            router.replace("/")
+        })
     }
 }
 

@@ -1,11 +1,11 @@
 <template>
   <div class="flex">
-    <img :src="result.fields.thumbnail" />
+    <img class="thumbnail" :src="result.fields.thumbnail" />
     <div class="content">
       <router-link v-bind:to="'/NewsArticle/' + result.id">
-        <h3>{{ result.webTitle }}</h3>
+        <h2 class="webtitle">{{ result.webTitle }}</h2>
       </router-link>
-      <p>{{ result.fields.trailText }}</p>
+      <p class="trailtext">{{ result.fields.trailText }}</p>
     </div>
   </div>
 </template>
@@ -36,5 +36,8 @@ a {
 }
 p {
   font-size: 10px;
+}
+h2 {
+  font-size: 12px;
 }
 </style>

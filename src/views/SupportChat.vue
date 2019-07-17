@@ -1,17 +1,32 @@
 <template>
   <div>
     <h1>Support Chat</h1>
-
-    <div v-for="(chat, key, index) in chats" :key="index">
-      <div>
-        <p>{{ chat.name }}</p>
-        <p>{{ chat.comment }}</p>
+    <div class="containerchat" v-chat-scroll>
+      <div class="speech-bubble" v-for="(chat, index) in chats" :key="index">
+        <div>
+          <p>{{ chat.name }}</p>
+          <p>{{ chat.comment }}</p>
+        </div>
       </div>
     </div>
-    <v-text-field v-model="comment"></v-text-field>
-    <v-btn @click="writeNewComment">SEND</v-btn>
-    <button v-on:click="logOut">Log out</button>
-    <br /><br /><br />
+    <div class="inputcomment">
+      <v-textarea
+        type="text"
+        clearable
+        placeholder="Type your comment here..."
+        auto-grow
+        box
+        rows="1"
+        v-model="comment"
+      ></v-textarea>
+      <v-btn class="sendbtn" @click="writeNewComment"
+        ><v-icon>send</v-icon></v-btn
+      >
+    </div>
+
+    <button class="logout" v-on:click="logOut">
+      <v-icon class="big-icon">exit_to_app</v-icon>
+    </button>
   </div>
 </template>
 <script>
@@ -23,7 +38,7 @@ export default {
   data() {
     return {
       comment: "",
-      chats: {}
+      chats: []
     };
   },
   computed: {
@@ -58,16 +73,17 @@ export default {
 
     getComments() {
       console.log("get comments called");
-      let that = this;
 
+      let that = this;
       firebase
         .database()
-        .ref("/supportchat")
+        .ref("supportchat")
         .on("value", function(data) {
           console.log("got this from db", data);
           console.log("trying data val()", data.val());
+          let object1 = data.val();
 
-          let dataArr = Object.values(data.val());
+          let dataArr = Object.values(object1);
           console.log("data array", dataArr);
           console.log("looping through one by one");
           dataArr.forEach(messageObject => {
@@ -75,7 +91,7 @@ export default {
           });
           // chats equals dataArr to be able to use v-for chat in chats
           that.chats = dataArr;
-          console.log("tried to add data to this.chats, got", that.chats);
+          that.comment = "";
         });
     }
   }
@@ -83,19 +99,59 @@ export default {
 </script>
 
 <style scoped>
-img {
-  border-radius: 50px;
+h1 {
+  text-align: -webkit-center;
+  text-transform: capitalize;
 }
-
-h3 {
-  margin-bottom: 0;
+.containerchat {
+  background-color: beige;
+  max-width: 350px;
+  height: 300px;
+  overflow-y: scroll;
+  margin-top: 30px;
+  margin-left: 10px;
 }
-
-p {
-  margin-top: 0;
+.speech-bubble {
+  background: #b6d2df;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  margin: 40px;
+  max-width: 400px;
+  padding: 15px;
+  position: relative;
 }
+/* .speech-bubble::after {
+  border-left: 20px solid transparent;
+  border-top: 20px solid #b6d2df;
+  bottom: -20px;
+  content: "";
+  position: absolute;
+  right: 20px;
+} */
+.inputcomment {
+  display: flex;
+  width: 350px;
+  margin: 0px 10px;
 
-pre {
-  text-align: left;
+  /* flex-direction: column; */
+}
+.sendbtn {
+  border-radius: 100%;
+}
+.v-btn {
+  min-width: 50px;
+  height: 50px;
+}
+.theme--light.v-btn:not(.v-btn--icon):not(.v-btn--flat) {
+  background-color: #709aad;
+}
+.logout {
+  margin-left: 315px;
+  margin-top: 55px;
+}
+.big-icon {
+  font-size: 30px;
 }
 </style>

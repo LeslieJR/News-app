@@ -26,12 +26,6 @@
       </tr> -->
         </template>
       </v-data-table>
-
-      <!-- <div>
-        
-        <p>{{city}}</p>
-        <button @click="getInfo()">Click Me</button>
-        </div> -->
     </v-card>
   </v-container>
 </template>

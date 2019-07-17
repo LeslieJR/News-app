@@ -1,0 +1,75 @@
+/* LANSCAPE */
+@media (orientation: landscape) {
+    .v-input__slot {
+        width: 165px;
+    }
+
+    .container {
+        width: 415px;
+    }
+
+    .date {
+        height: 60px;
+    }
+
+    .title h1 {
+        color: black;
+        width: 290px;
+        padding: 80px 140px;
+        background-color: hsla(0, 0%, 100%, .3);
+        text-shadow: 3px 2px darkslateblue;
+    }
+
+    .blue-grey {
+        background-color: #052962 !important;
+    }
+
+    .theme--light.v-icon {
+        color: white;
+    }
+
+    .swipper-button-next {
+        right: 90px;
+    }
+
+    .swipper-button-prev {
+        left: 90px;
+    }
+
+    .v-content__wrap {
+        background-color: azure;
+    }
+
+    .thumbnail {
+        width: 30%;
+    }
+
+    .webtitle {
+        font-size: 18px;
+    }
+
+    .sigin {
+        margin: 10px 280px;
+    }
+
+    .trailtext {
+        font-size: 15px;
+    }
+
+    .inputcomment {
+        margin: 10px 170px;
+    }
+
+    .logout {
+        margin-left: 610px;
+    }
+
+    .containerchat {
+        border: 1px solid black;
+        margin: 0 155px;
+    }
+
+    .inputcomment {
+        margin: 0 155px;
+    }
+}

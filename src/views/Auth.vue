@@ -1,6 +1,12 @@
 <template>
   <div>
-    <h1>Sign in</h1>
+    <router-link
+      v-if="$routerHistory.hasPrevious()"
+      :to="{ path: $routerHistory.previous().path }"
+    >
+      <v-icon large>arrow_back</v-icon>
+    </router-link>
+    <h1 class="sigin">Sign in</h1>
     <div id="firebaseui-auth-container"></div>
   </div>
 </template>

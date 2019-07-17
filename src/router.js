@@ -63,8 +63,9 @@ router.afterEach(writeHistory)
 
 export default router
 router.beforeEach((to, from, next) => {
+  console.log(from.path, to.path)
   let currentUser = auth.user()
-  let requireAuth = to.matched.some(record => record.meta.requireAuth)
-  if (requireAuth && !currentUser) next('auth')
+  let requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+  if (requiresAuth && !currentUser) next('/auth')
   else next()
 })

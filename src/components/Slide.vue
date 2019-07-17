@@ -3,10 +3,7 @@
     <div
       class="image"
       v-bind:style="{
-        backgroundImage:
-          'linear-gradient(rgba(170, 195, 198, 0.3), rgba(82, 56, 93, 0.4)),url(' +
-          article.fields.thumbnail +
-          ')'
+        backgroundImage: 'url(' + article.fields.thumbnail + ')'
       }"
     >
       <div class="content">
@@ -34,6 +31,10 @@ export default {
   background-size: contain;
   display: flex;
   background-position-x: center;
+  /* background-image: linear-gradient(
+    rgba(170, 195, 198, 0.3),
+    rgba(82, 56, 93, 0.4)
+  ); */
   /* flex-direction: column;
     justify-content: space-around; */
 }
