@@ -31,7 +31,7 @@
       <v-divider></v-divider>
       <v-list-tile>
         <v-list-tile-content>
-          <router-link to="/Login"
+          <router-link to="/auth"
             ><v-list-tile-title class="white--text"
               >Login
             </v-list-tile-title></router-link

@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import auth from './auth'
 import VueRouterBackButton, {
   routerHistory,
   writeHistory
 } from 'vue-router-back-button'
 
-import AuthSuccess from './components/AuthSuccess.vue';
 Vue.use(Router)
 Vue.use(routerHistory)
 
@@ -19,9 +19,13 @@ const router = new Router({
       component: () => import('./views/Home.vue')
     },
     {
-      path: '/login',
-      name: 'login',
-      component: () => import('./views/Login.vue'),
+      path: '*',
+      redirect: '/home'
+    },
+    {
+      path: '/auth',
+      name: 'auth',
+      component: () => import('./views/Auth.vue'),
 
     },
     {
@@ -32,13 +36,6 @@ const router = new Router({
         requiresAuth: true
       }
     },
-
-
-    {
-      path: '/success',
-      component: AuthSuccess
-    },
-
 
     {
       path: '/section/:sectionName/:subsection',
@@ -52,14 +49,7 @@ const router = new Router({
       name: 'newsarticle',
       component: () => import('./views/NewsArticle.vue')
     },
-    // {
-    //   path: '/supportchat',
-    //   name: 'supportchat',
-    //   component: () => import('./views/SupportChat.vue'),
-    //   meta: {
-    //     protected: true
-    //   }
-    // }
+
 
   ]
 })
@@ -69,17 +59,12 @@ Vue.use(VueRouterBackButton, {
   ignoreRoutesWithSameName: 'true'
 })
 
-
-// FALTAN COSAS!
-// router.beforeEach((to, from, next) => {
-//   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-//   if (requiresAuth ) {
-//     next('/Login');
-//   } else {
-//     next();
-//   }
-// });
-
 router.afterEach(writeHistory)
 
 export default router
+router.beforeEach((to, from, next) => {
+  let currentUser = auth.user()
+  let requireAuth = to.matched.some(record => record.meta.requireAuth)
+  if (requireAuth && !currentUser) next('auth')
+  else next()
+})

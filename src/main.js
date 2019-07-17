@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import firebase from 'firebase'
+import auth from './auth'
 import './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
@@ -17,17 +17,7 @@ import 'swiper/dist/css/swiper.css'
 
 Vue.config.productionTip = false;
 
-var firebaseConfig = {
-  apiKey: "AIzaSyA-37yyjzGUSSU0UP0sYLNJb4R8OTK4vp4",
-  authDomain: "news-app-2c25e.firebaseapp.com",
-  databaseURL: "https://news-app-2c25e.firebaseio.com",
-  projectId: "news-app-2c25e",
-  storageBucket: "",
-  messagingSenderId: "845576841648",
-  appId: "1:845576841648:web:70bbfd9175dc23fb"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+
 
 Vue.use(VueAwesomeSwiper, /* { default global options } */ )
 
@@ -37,6 +27,8 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-
+  beforeCreate() {
+    auth.init(this)
+  },
   render: h => h(App)
 }).$mount('#app')
