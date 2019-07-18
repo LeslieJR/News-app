@@ -29,7 +29,7 @@ const router = new Router({
 
     },
     {
-      path: '/SupportChat',
+      path: '/supportchat',
       name: 'supportchat',
       component: () => import('./views/SupportChat.vue'),
       meta: {

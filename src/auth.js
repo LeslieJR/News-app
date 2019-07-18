@@ -46,7 +46,7 @@ const auth = {
                 console.log(router.history.current.fullPath)
             }
             if (router.history.current.fullPath == "/auth" && user) {
-                router.push("supportchat")
+                context.$router.push("supportchat")
             }
 
         });
