@@ -99,7 +99,7 @@ export default {
 }
 .home {
   height: 100vh;
-  background-image: url("https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=655&q=80");
+  background-image: url("https://wallpaperplay.com/walls/full/3/3/e/38927.jpg");
 }
 @media (orientation: landscape) {
   .swiper-button-prev {
@@ -107,6 +107,10 @@ export default {
   }
   .swiper-button-next {
     right: 90px;
+  }
+  .home {
+    height: 140vh;
+    background-image: url("https://wallpaperplay.com/walls/full/3/3/e/38927.jpg");
   }
   /* .home {
     background-image: url("https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=655&q=80");

@@ -31,6 +31,7 @@ export default {
   background-size: contain;
   display: flex;
   background-position-x: center;
+  border: 2px solid white;
   /* background-image: linear-gradient(
     rgba(170, 195, 198, 0.3),
     rgba(82, 56, 93, 0.4)
@@ -49,6 +50,12 @@ h1 {
 @media (orientation: landscape) {
   .title {
     margin: 19px 100px;
+  }
+  .image {
+    border: 0px;
+  }
+  .date {
+    height: 60px;
   }
 }
 </style>

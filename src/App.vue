@@ -89,8 +89,7 @@ export default {
           items: [
             { title: "Tennis", route: "/section/sport/tennis" },
             { title: "Football", route: "/section/sport/football" },
-            { title: "Basket", route: "/section/sport/basket" },
-            { title: "Cricket", route: "/section/sport/cricket" }
+            { title: "Basket", route: "/section/sport/basket" }
           ]
         },
         {

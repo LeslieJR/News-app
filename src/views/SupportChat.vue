@@ -164,10 +164,12 @@ h1 {
 }
 @media (orientation: landscape) {
   .containerchat {
-    margin: 10px 150px;
+    margin: 0px 150px;
   }
   .inputcomment {
     margin: 0 150px;
+    width: 350px;
+    background-color: beige;
   }
   .logout {
     margin-left: 470px;
