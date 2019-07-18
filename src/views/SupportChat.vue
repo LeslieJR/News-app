@@ -2,8 +2,15 @@
   <div>
     <h1>Support Chat</h1>
     <div class="containerchat" v-chat-scroll>
-      <div class="speech-bubble" v-for="(chat, index) in chats" :key="index">
-        <div>
+      <div v-for="(chat, index) in chats" :key="index">
+        <div
+          class="speech-bubble-right"
+          v-if="chat.name == $store.state.user.displayName"
+        >
+          <p>{{ chat.name }}</p>
+          <p>{{ chat.comment }}</p>
+        </div>
+        <div class="speech-bubble-left" v-else>
           <p>{{ chat.name }}</p>
           <p>{{ chat.comment }}</p>
         </div>
@@ -32,6 +39,7 @@
 <script>
 import auth from "../auth";
 import firebase from "firebase";
+
 import { mapGetters } from "vuex";
 export default {
   name: "supportchat",
@@ -111,7 +119,8 @@ h1 {
   margin-top: 30px;
   margin-left: 10px;
 }
-.speech-bubble {
+.speech-bubble-right,
+.speech-bubble-left {
   background: #b6d2df;
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -122,13 +131,9 @@ h1 {
   padding: 15px;
   position: relative;
 }
-/* .speech-bubble::after {
-  border-left: 20px solid transparent;
-  border-top: 20px solid #b6d2df;
-  bottom: -20px;
-  content: "";
-  position: absolute;
-  right: 20px;
+
+/* .speech-bubble-right::after {
+ 
 } */
 .inputcomment {
   display: flex;
