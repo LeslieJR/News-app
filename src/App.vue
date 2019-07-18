@@ -102,22 +102,18 @@ export default {
             { title: "Books", route: "/section/culture/books" }
           ]
         },
-        {
-          title: "Tech",
-          items: [{ title: "Technology", route: "/section/tech/technology" }]
-        },
+        // {
+        //   title: "Tech",
+        //   items: [{ title: "Technology", route: "/section/tech/technology" }]
+        // },
         {
           title: "Lifestyle",
-          items: [
-            { title: "Fashion", route: "/section/lifeandstyle/fashion" },
-            { title: "Food", route: "/section/lifeandstyle/food" }
-          ]
+          items: [{ title: "Fashion", route: "/section/lifeandstyle/fashion" }]
         },
         {
           title: "Travel",
           items: [
-            { title: "Travel in Europe", route: "/section/travel/europe" },
-            { title: "Travel in the UK", route: "/section/travel/uk" }
+            { title: "Travel in Europe", route: "/section/travel/europe" }
           ]
         }
       ]

@@ -1,14 +1,10 @@
 /* LANSCAPE */
 @media (orientation: landscape) {
+  h1 {
+    margin: 0 114px;
+  }
 
-
-
-
-    h1 {
-        margin: 0 114px;
-    }
-
-    /* .title h1 {
+  /* .title h1 {
         color: black;
         width: 290px;
         padding: 80px 140px;
@@ -16,56 +12,55 @@
         text-shadow: 3px 2px darkslateblue;
     } */
 
-    .blue-grey {
-        background-color: #052962 !important;
-    }
+  .blue-grey {
+    background-color: #052962;
+  }
 
-    .theme--light.v-icon {
-        color: white !important;
-    }
+  .theme--light.v-icon {
+    color: white;
+  }
 
-    .swipper-button-next {
-        right: 90px !important;
-    }
+  .swipper-button-next {
+    right: 90px;
+  }
 
-    .swipper-button-prev {
-        left: 90px !important;
-    }
+  .swipper-button-prev {
+    left: 90px;
+  }
 
-    .v-content__wrap {
-        background-color: azure;
-    }
+  .v-content__wrap {
+    background-color: azure;
+  }
 
-    .thumbnail {
-        width: 30%;
-    }
+  .thumbnail {
+    width: 30%;
+  }
 
-    .webtitle {
-        font-size: 18px !important;
-    }
+  .webtitle {
+    font-size: 18px;
+  }
 
-    .sigin {
-        margin: 10px 280px !important;
-    }
+  .sigin {
+    margin: 10px 280px;
+  }
 
-    .trailtext {
-        font-size: 15px !important;
-    }
+  .trailtext {
+    font-size: 15px;
+  }
 
-    .inputcomment {
-        margin: 10px 170px !important;
-    }
+  .inputcomment {
+    margin: 10px 170px;
+  }
 
-    /* .logout {
-        margin-left: 610px !important;
+  /* .logout {
+        margin-left: 610px;
     } */
 
-    .containerchat {
-        border: 1px solid black !important;
-        margin: 0 155px !important;
-    }
+  .containerchat {
+    margin-left: 170px;
+  }
 
-    .inputcomment {
-        margin: 0 155px !important;
-    }
+  .inputcomment {
+    margin: 0 155px;
+  }
 }

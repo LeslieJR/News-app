@@ -3,10 +3,7 @@
     <h1>Support Chat</h1>
     <div class="containerchat" v-chat-scroll>
       <div v-for="(chat, index) in chats" :key="index">
-        <div
-          class="speech-bubble-right"
-          v-if="chat.name == $store.state.user.displayName"
-        >
+        <div class="speech-bubble-right" v-if="chat.name === user.displayName">
           <p>{{ chat.name }}</p>
           <p>{{ chat.comment }}</p>
         </div>
@@ -129,7 +126,13 @@ h1 {
   margin: 40px;
   max-width: 400px;
   padding: 15px;
-  position: relative;
+}
+.speech-bubble-right > p {
+  text-align: end;
+}
+
+.speech-bubble-left > p {
+  text-align: left;
 }
 
 /* .speech-bubble-right::after {
@@ -158,5 +161,16 @@ h1 {
 }
 .big-icon {
   font-size: 30px;
+}
+@media (orientation: landscape) {
+  .containerchat {
+    margin: 10px 150px;
+  }
+  .inputcomment {
+    margin: 0 150px;
+  }
+  .logout {
+    margin-left: 470px;
+  }
 }
 </style>

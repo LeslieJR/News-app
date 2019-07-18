@@ -40,4 +40,12 @@ p {
 h2 {
   font-size: 12px;
 }
+@media (orientation: landscape) {
+  p {
+    font-size: 15px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+}
 </style>

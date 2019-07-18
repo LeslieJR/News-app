@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <!-- weather component -->
     <weather></weather>
     <!-- headlines -->
@@ -96,5 +96,20 @@ export default {
   bottom: 10px;
   left: 0;
   width: 100%;
+}
+.home {
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=655&q=80");
+}
+@media (orientation: landscape) {
+  .swiper-button-prev {
+    left: 90px;
+  }
+  .swiper-button-next {
+    right: 90px;
+  }
+  .home {
+    background-image: url("https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=655&q=80");
+  }
 }
 </style>

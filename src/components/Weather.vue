@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="response" xs12 sm6>
+  <v-container v-if="response" class="weather">
     <v-card>
       <div class="date">
         <v-text-field
@@ -152,5 +152,10 @@ table.v-table tbody td:not(:first-child) {
 .date p {
   padding: 26px 15px;
   font-size: medium;
+}
+@media (orientation: landscape) {
+  .weather {
+    width: 62%;
+  }
 }
 </style>

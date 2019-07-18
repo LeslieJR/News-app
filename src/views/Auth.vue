@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="signin-page">
     <router-link
       v-if="$routerHistory.hasPrevious()"
       :to="{ path: $routerHistory.previous().path }"

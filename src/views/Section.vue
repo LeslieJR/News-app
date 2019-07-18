@@ -4,7 +4,7 @@
       v-if="$routerHistory.hasPrevious()"
       :to="{ path: $routerHistory.previous().path }"
     >
-      <v-icon large>arrow_back</v-icon>
+      <v-icon large class="arrow">arrow_back</v-icon>
     </router-link>
     <h1>{{ subsection }}</h1>
     <ArticleSection
@@ -12,6 +12,18 @@
       :key="result.id"
       :result="result"
     ></ArticleSection>
+    <v-btn
+      v-scroll="onScroll"
+      v-show="fab"
+      fab
+      fixed
+      bottom
+      right
+      @click="toTop"
+      class="top"
+    >
+      <v-icon>keyboard_arrow_up</v-icon>
+    </v-btn>
   </div>
 </template>
 
@@ -22,8 +34,19 @@ export default {
   props: ["sectionName", "subsection"],
   data() {
     return {
-      results: null
+      results: null,
+      fab: false
     };
+  },
+  methods: {
+    onScroll(e) {
+      if (typeof window === "undefined") return;
+      const top = window.pageYOffset || e.target.scrollTop || 0;
+      this.fab = top > 20;
+    },
+    toTop() {
+      this.$vuetify.goTo(0);
+    }
   },
   created() {
     console.log(this.subsection, this.sectionName);
@@ -60,6 +83,18 @@ a {
 h1 {
   text-align: -webkit-center;
   text-transform: capitalize;
+  padding: 20px;
+}
+.top {
+  height: 35px;
+  width: 35px;
+  right: 0px;
+  bottom: 4px;
+}
+@media (orientation: landscape) {
+  h1 {
+    font-size: 30px;
+  }
 }
 </style>
 

@@ -43,9 +43,12 @@ a {
 }
 h1 {
   font-size: 22px;
+  text-shadow: 2px 2px grey;
+  padding: 20% 10%;
 }
-.title h1 {
-  font-size: 25px;
-  padding: 14% 0px;
+@media (orientation: landscape) {
+  .title {
+    margin: 19px 100px;
+  }
 }
 </style>
