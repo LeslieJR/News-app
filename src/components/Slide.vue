@@ -43,8 +43,6 @@ a {
 }
 h1 {
   font-size: 22px;
-  margin-right: 15px;
-  margin-left: 15px;
 }
 .title h1 {
   font-size: 25px;

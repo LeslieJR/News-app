@@ -1,39 +1,35 @@
 /* LANSCAPE */
 @media (orientation: landscape) {
-    .v-input__slot {
-        width: 165px;
+
+
+
+
+    h1 {
+        margin: 0 114px;
     }
 
-    .container {
-        width: 415px;
-    }
-
-    .date {
-        height: 60px;
-    }
-
-    .title h1 {
+    /* .title h1 {
         color: black;
         width: 290px;
         padding: 80px 140px;
         background-color: hsla(0, 0%, 100%, .3);
         text-shadow: 3px 2px darkslateblue;
-    }
+    } */
 
     .blue-grey {
         background-color: #052962 !important;
     }
 
     .theme--light.v-icon {
-        color: white;
+        color: white !important;
     }
 
     .swipper-button-next {
-        right: 90px;
+        right: 90px !important;
     }
 
     .swipper-button-prev {
-        left: 90px;
+        left: 90px !important;
     }
 
     .v-content__wrap {
@@ -45,31 +41,31 @@
     }
 
     .webtitle {
-        font-size: 18px;
+        font-size: 18px !important;
     }
 
     .sigin {
-        margin: 10px 280px;
+        margin: 10px 280px !important;
     }
 
     .trailtext {
-        font-size: 15px;
+        font-size: 15px !important;
     }
 
     .inputcomment {
-        margin: 10px 170px;
+        margin: 10px 170px !important;
     }
 
-    .logout {
-        margin-left: 610px;
-    }
+    /* .logout {
+        margin-left: 610px !important;
+    } */
 
     .containerchat {
-        border: 1px solid black;
-        margin: 0 155px;
+        border: 1px solid black !important;
+        margin: 0 155px !important;
     }
 
     .inputcomment {
-        margin: 0 155px;
+        margin: 0 155px !important;
     }
 }

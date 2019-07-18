@@ -1,5 +1,5 @@
 <template>
-  <v-container v-if="response">
+  <v-container v-if="response" xs12 sm6>
     <v-card>
       <div class="date">
         <v-text-field
