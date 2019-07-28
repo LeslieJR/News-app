@@ -43,16 +43,24 @@ a {
   color: white;
 }
 h1 {
-  font-size: 22px;
-  text-shadow: 2px 2px grey;
+  font-size: 24px;
+  text-shadow: -2px 2px black;
   padding: 20% 10%;
 }
 @media (orientation: landscape) {
   .title {
     margin: 19px 100px;
   }
+
+  h1 {
+    font-size: 27px;
+    text-shadow: -2px 2px black;
+    padding: 9% 10%;
+  }
   .image {
     border: 0px;
+    background-size: auto;
+    height: 350px;
   }
   .date {
     height: 60px;
