@@ -5,7 +5,7 @@
         <v-text-field
           class="input"
           v-model="inputText"
-          placeholder="City"
+          placeholder="City Name"
           prepend-inner-icon="search"
           v-on:keyup.enter="input(inputText)"
         >
@@ -16,16 +16,14 @@
       <v-data-table :headers="headers" hide-headers :items="items" hide-actions>
         <template v-slot:items="props">
           <tr>
-            <td style="font-size:24px;">{{ props.item.Location }}</td>
-            <td>
-              <img :src="props.item.Icon" />
-            </td>
-          </tr>
-
-          <tr>
-            <td>{{ props.item.Description }}</td>
+            <td>{{ props.item.Location }}</td>
             <td>{{ props.item.Temperature }}ºC</td>
+            <td><img :src="props.item.Icon" /></td>
           </tr>
+          <!-- <tr>
+          <td>{{ props.item.Description }}</td>
+          
+      </tr> -->
         </template>
       </v-data-table>
     </v-card>
@@ -108,6 +106,9 @@ export default {
         today.getFullYear();
     }
   },
+  // created(){
+  //     this.getCoordinates;
+  //      console.log(this.lon,this.lat)
 
   computed: {
     items() {
@@ -125,18 +126,11 @@ export default {
 </script>
 <style scoped>
 .input {
-  width: 60px;
+  width: 150px;
 }
 .input,
 table {
   margin-left: 20px;
-}
-
-.v-card > :first-child:not(.v-btn):not(.v-chip) {
-  height: 54px;
-}
-table.v-table tbody tr {
-  height: 40px;
 }
 .v-table__overflow {
   width: 90%;
@@ -148,11 +142,10 @@ table.v-table tbody td {
   font-size: 19px;
   font-weight: 400;
 }
-
+child,
 table.v-table tbody td:not(:first-child) {
   padding: 0 10px;
 }
-
 .date {
   display: flex;
 }
@@ -160,7 +153,6 @@ table.v-table tbody td:not(:first-child) {
   padding: 26px 15px;
   font-size: medium;
 }
-
 @media (orientation: landscape) {
   .weather {
     width: 62%;

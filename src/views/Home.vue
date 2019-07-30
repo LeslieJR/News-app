@@ -1,9 +1,9 @@
 <template>
   <div class="home">
+    <!-- weather component -->
+    <weather></weather>
     <!-- headlines -->
-    <div class="title">
-      <h1>Breaking News</h1>
-    </div>
+
     <!-- swiper component -->
     <swiper :options="swiperOption">
       <slide
@@ -24,8 +24,6 @@
         slot="button-next"
       ></div>
     </swiper>
-    <!-- weather component -->
-    <weather></weather>
   </div>
 </template>
 
@@ -74,16 +72,6 @@ export default {
 };
 </script>
 <style scoped>
-.title {
-  background-color: black;
-}
-h1 {
-  color: white;
-  text-align: -webkit-center;
-  text-transform: capitalize;
-  padding: 10px 20px;
-  font-size: 40px;
-}
 .swiper-slide {
   margin-top: 50px;
 }
@@ -111,29 +99,21 @@ h1 {
 }
 .home {
   height: 100vh;
+  background-image: url("https://wallpaperplay.com/walls/full/3/3/e/38927.jpg");
 }
 @media (orientation: landscape) {
-  .swiper-container-horizontal > .swiper-pagination-bullets {
-    bottom: 60px;
-    left: 0;
-    width: 100%;
-  }
   .swiper-button-prev {
-    left: 50px;
+    left: 90px;
   }
   .swiper-button-next {
-    right: 50px;
+    right: 90px;
   }
   .home {
     height: 140vh;
+    background-image: url("https://wallpaperplay.com/walls/full/3/3/e/38927.jpg");
   }
-  h1 {
-    color: white;
-    text-align: -webkit-center;
-    text-transform: capitalize;
-    padding: 20px 20px;
-    font-size: 40px;
-    height: 70px;
-  }
+  /* .home {
+    background-image: url("https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=655&q=80");
+  } */
 }
 </style>
