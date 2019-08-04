@@ -150,7 +150,7 @@ table.v-table tbody td:not(:first-child) {
 }
 @media (orientation: landscape) {
   .weather {
-    width: 62%;
+    width: 80%;
   }
 }
 </style>

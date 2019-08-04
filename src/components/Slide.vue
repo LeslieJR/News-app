@@ -49,10 +49,12 @@ h1 {
 }
 @media (orientation: landscape) {
   .title {
-    margin: 19px 100px;
+    margin: 10% 16%;
   }
   .image {
     border: 0px;
+    height: 320px;
+    background-size: inherit;
   }
   .date {
     height: 60px;

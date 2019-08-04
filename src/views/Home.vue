@@ -113,17 +113,22 @@ h1 {
 }
 @media (orientation: landscape) {
   .swiper-button-prev {
-    left: 90px;
+    left: 30px;
   }
   .swiper-button-next {
-    right: 90px;
+    right: 30px;
   }
   .home {
     height: 140vh;
-    background-image: url("https://wallpaperplay.com/walls/full/3/3/e/38927.jpg");
+    /* background-image: url("https://wallpaperplay.com/walls/full/3/3/e/38927.jpg"); */
   }
-  /* .home {
-    background-image: url("https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=655&q=80");
-  } */
+  .swiper-container-horizontal > .swiper-pagination-bullets[data-v-fae5bece] {
+    bottom: 25px;
+    left: 0;
+    width: 100%;
+  }
+  .swiper-slide[data-v-fae5bece] {
+    margin-top: 30px;
+  }
 }
 </style>
