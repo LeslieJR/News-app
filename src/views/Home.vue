@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <!-- weather component -->
-    <weather></weather>
     <!-- headlines -->
-
+    <div class="subsection">
+      <h1>Breaking News</h1>
+    </div>
     <!-- swiper component -->
     <swiper :options="swiperOption">
       <slide
@@ -24,6 +24,8 @@
         slot="button-next"
       ></div>
     </swiper>
+    <!-- weather component -->
+    <weather></weather>
   </div>
 </template>
 
@@ -75,8 +77,16 @@ export default {
 .swiper-slide {
   margin-top: 50px;
 }
+.subsection {
+  background-color: black;
+}
 .subtitle {
   margin-left: 50px;
+}
+h1 {
+  color: white;
+  text-align: center;
+  font-size: -webkit-xxx-large;
 }
 
 .swiper-button-prev,
@@ -99,7 +109,7 @@ export default {
 }
 .home {
   height: 100vh;
-  background-image: url("https://wallpaperplay.com/walls/full/3/3/e/38927.jpg");
+  /* background-image: url("https://wallpaperplay.com/walls/full/3/3/e/38927.jpg"); */
 }
 @media (orientation: landscape) {
   .swiper-button-prev {

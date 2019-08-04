@@ -43,9 +43,9 @@ a {
   color: white;
 }
 h1 {
-  font-size: 22px;
-  text-shadow: 2px 2px grey;
-  padding: 20% 10%;
+  font-size: 28px;
+  text-shadow: 4px 2px black;
+  padding-top: 22%;
 }
 @media (orientation: landscape) {
   .title {

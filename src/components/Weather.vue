@@ -1,7 +1,12 @@
 <template>
   <v-container v-if="response" class="weather">
     <v-card>
-      <div class="date">
+      <div
+        class="date"
+        style="
+    height: 50px;
+"
+      >
         <v-text-field
           class="input"
           v-model="inputText"
@@ -20,10 +25,6 @@
             <td>{{ props.item.Temperature }}ºC</td>
             <td><img :src="props.item.Icon" /></td>
           </tr>
-          <!-- <tr>
-          <td>{{ props.item.Description }}</td>
-          
-      </tr> -->
         </template>
       </v-data-table>
     </v-card>
@@ -106,9 +107,6 @@ export default {
         today.getFullYear();
     }
   },
-  // created(){
-  //     this.getCoordinates;
-  //      console.log(this.lon,this.lat)
 
   computed: {
     items() {
@@ -125,9 +123,6 @@ export default {
 };
 </script>
 <style scoped>
-.input {
-  width: 150px;
-}
 .input,
 table {
   margin-left: 20px;
@@ -135,9 +130,9 @@ table {
 .v-table__overflow {
   width: 90%;
 }
-v-input__control {
+/* v-input__control {
   height: 30px;
-}
+} */
 table.v-table tbody td {
   font-size: 19px;
   font-weight: 400;

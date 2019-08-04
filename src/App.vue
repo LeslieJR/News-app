@@ -1,6 +1,12 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="drawer" fixed right app class="blue-grey">
+    <v-navigation-drawer
+      v-model="drawer"
+      fixed
+      right
+      app
+      class="teal lighten-4"
+    >
       <v-list>
         <v-list-group
           v-for="item in items"
@@ -11,16 +17,14 @@
           <template v-slot:activator>
             <v-list-tile>
               <v-list-tile-content>
-                <v-list-tile-title class="white--text">{{
-                  item.title
-                }}</v-list-tile-title>
+                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
           </template>
           <v-list-tile v-for="subItem in item.items" :key="subItem.title">
             <v-list-tile-content>
               <router-link :to="subItem.route"
-                ><v-list-tile-title class="white--text">{{
+                ><v-list-tile-title class="black--text">{{
                   subItem.title
                 }}</v-list-tile-title></router-link
               >
@@ -32,8 +36,9 @@
       <v-list-tile>
         <v-list-tile-content>
           <router-link to="/auth"
-            ><v-list-tile-title class="white--text"
-              >Login
+            ><v-list-tile-title class="black--text"
+              ><v-icon>lock</v-icon>
+              Login
             </v-list-tile-title></router-link
           >
         </v-list-tile-content>
@@ -42,19 +47,19 @@
       <v-list-tile>
         <v-list-tile-content>
           <router-link to="/SupportChat"
-            ><v-list-tile-title class="white--text"
-              >Support Chat</v-list-tile-title
-            ></router-link
+            ><v-list-tile-title class="black--text"
+              ><v-icon>chat</v-icon> Support Chat
+            </v-list-tile-title></router-link
           >
         </v-list-tile-content>
       </v-list-tile>
     </v-navigation-drawer>
-    <v-toolbar fixed app>
+    <v-toolbar fixed app class="teal lighten-4">
       <v-toolbar-title>News</v-toolbar-title>
       <v-toolbar-side-icon
         fixed
         right
-        class="grey--text"
+        class="black--text"
         @click="drawer = !drawer"
       ></v-toolbar-side-icon>
       <v-toolbar-title class="headline text-uppercase"></v-toolbar-title>
@@ -101,10 +106,6 @@ export default {
             { title: "Books", route: "/section/culture/books" }
           ]
         },
-        // {
-        //   title: "Tech",
-        //   items: [{ title: "Technology", route: "/section/tech/technology" }]
-        // },
         {
           title: "Lifestyle",
           items: [{ title: "Fashion", route: "/section/lifeandstyle/fashion" }]
@@ -129,5 +130,19 @@ p {
 }
 body {
   font-family: "Roboto Condensed", sans-serif;
+}
+.v-toolbar__title {
+  font-size: 30px;
+  font-weight: 500;
+}
+.v-navigation-drawer > .v-list:not(.v-list--dense) .v-list__tile {
+  font-size: 22px;
+}
+.v-list__tile {
+  height: 60px;
+  font-size: 22px;
+}
+.v-toolbar__content .v-btn--icon {
+  margin: 0;
 }
 </style>
