@@ -25,9 +25,13 @@ export default {
 };
 </script>
 <style scoped>
+.content{
+  display: flex;
+  align-items: center;
+}
 .image {
   padding: 0 50px;
-  height: 225px;
+  height: 300px;
   background-size: contain;
   display: flex;
   background-position-x: center;
@@ -35,17 +39,17 @@ export default {
   /* background-image: linear-gradient(
     rgba(170, 195, 198, 0.3),
     rgba(82, 56, 93, 0.4)
-  ); */
-  /* flex-direction: column;
-    justify-content: space-around; */
+  );
+   flex-direction: column;
+   justify-content: space-around; */
 }
 a {
   color: white;
 }
 h1 {
   font-size: 28px;
-  text-shadow: 4px 2px black;
-  padding-top: 22%;
+  /*text-shadow: 4px 2px black;
+  padding-top: 22%;*/
 }
 @media (orientation: landscape) {
   .title {

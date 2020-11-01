@@ -74,22 +74,23 @@ export default {
 };
 </script>
 <style scoped>
-.swiper-slide {
+/*.swiper-slide {
   margin-top: 50px;
-}
+}*/
 .subsection {
+  display: flex;
+  justify-content: center;
   background-color: black;
 }
-.subtitle {
+/*.subtitle {
   margin-left: 50px;
-}
+}*/
 h1 {
   color: white;
-  text-align: center;
   font-size: -webkit-xxx-large;
 }
 
-.swiper-button-prev,
+/*.swiper-button-prev,
 .swiper-button-next {
   position: absolute;
   top: 50%;
@@ -98,10 +99,11 @@ h1 {
   margin-top: 0px;
   z-index: 10;
   cursor: pointer;
+  color: aqua;
   background-size: 27px 44px;
   background-position: center;
   background-repeat: no-repeat;
-}
+}*/
 .swiper-container-horizontal > .swiper-pagination-bullets {
   bottom: 10px;
   left: 0;
