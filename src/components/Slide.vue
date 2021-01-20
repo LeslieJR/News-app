@@ -43,13 +43,15 @@ export default {
    flex-direction: column;
    justify-content: space-around; */
 }
-a {
+
+.title h1 {
   color: white;
-}
-h1 {
-  font-size: 28px;
-  /*text-shadow: 4px 2px black;
-  padding-top: 22%;*/
+  font-size: 2.3rem;
+  text-shadow:    
+  0.07em 0 black,
+  0 0.07em black,
+  -0.07em 0 black,
+  0 -0.07em black;
 }
 @media (orientation: landscape) {
   .title {
