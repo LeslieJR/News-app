@@ -46,7 +46,7 @@ export default {
 
 .title h1 {
   color: white;
-  font-size: 2.3rem;
+  font-size: 2rem;
   text-shadow:    
   0.07em 0 black,
   0 0.07em black,
@@ -59,7 +59,7 @@ export default {
   }
   .image {
     border: 0px;
-    height: 320px;
+    height: 200px;
     background-size: inherit;
   }
   .date {
